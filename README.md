@@ -1,19 +1,19 @@
-= Qt-Ros =
+# Qt-Ros (FORK FOR QT5 COMPATIBILITY)
 
 Ros Documentation and Tutorials: http://wiki.ros.org/qt_create
 
-=== Overview ===
+## Overview
 
 Includes templates and create scripts for quickly developing qt-based ros packages.
 
 * catkin_create_qt_pkg for quickly templating a qt-ros package.
 * Includes a master chooser as a docking element.
 
-=== Status ===
+## Status
 
-This package is and has been in maintenance mode for quite some time. Feel free to fork it and iterate on it if it serves a useful purpose for you.
+Hs293Go has ported this package to be compatible with Qt5
 
-=== Future Work Ideas ===
+## Future Work Ideas
 
 * Check if we still need cmake support for mingw's static builds.
 * Support more templates.
