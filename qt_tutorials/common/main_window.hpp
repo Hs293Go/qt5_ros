@@ -12,7 +12,7 @@
 ** Includes
 *****************************************************************************/
 
-#include <QtGui/QMainWindow>
+#include <QMainWindow>
 
 #ifndef Q_MOC_RUN
 #include "common/ui_main_window.h"

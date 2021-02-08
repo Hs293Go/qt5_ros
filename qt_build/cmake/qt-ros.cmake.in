@@ -1,8 +1,8 @@
 ###############################
-# Qt4
+# Qt5
 ###############################
 #
-# On mingw_cross, system lib deps are in prl files which FindQt4 does not check, 
+# On mingw_cross, system lib deps are in prl files which FindQt5 does not check, 
 # this can lead to some shortages in the link dependencies especially when 
 # statically building. So...if there is prl files to tell us about this, use them.
 #
@@ -29,29 +29,29 @@ macro(qt_link_flags_from_prl component)
         endif( FILE_PRL )
 endmacro()
 #
-# Is a wrapper around FindQt4.cmake.
+# Is a wrapper around FindQt5.cmake.
 # 
 # Mostly this is needed to satisfy a static mingw cross compile of qt, (mingw_cross)
-# as the cmake FindQt4 handles this poorly. Optionally call with the components 
+# as the cmake FindQt5 handles this poorly. Optionally call with the components 
 # you want to use, e.g.
 # 
-#     rosbuild_prepare_qt4()
-#     rosbuild_prepare_qt4(QtGui QtCore)
+#     rosbuild_prepare_qt5()
+#     rosbuild_prepare_qt5(QtGui QtCore)
 #
 # What this macro does:
 #
-# - calls the underlying FindQt4.cmake module with the specified components.
+# - calls the underlying FindQt5.cmake module with the specified components.
 # - if compiling statically
 #   - turns off -DQT_DLL if it's accidentally left on.
 #   - checks to see if there are .prl's which can fill out the lib dependencies.
 #
-# Sets QT_FOUND and QT4_FOUND if QT/QT4 was found.
+# Sets QT_FOUND and QT5_FOUND if QT/QT5 was found.
 # Also sets QT_XXX_FOUND if the specific component (XXX) was found.
 #
-# See the official FindQt4.cmake module for more information (usually in 
-# /usr/share/cmake-2.8/Modules/FindQt4.cmake 
+# See the official FindQt5.cmake module for more information (usually in 
+# /usr/share/cmake-2.8/Modules/FindQt5.cmake 
 #
-macro(rosbuild_prepare_qt4)
+macro(rosbuild_prepare_qt5)
     if ( ${ARGC} GREATER 0 )
         #foreach(arg ${ARGV})
         #  set(QT_COMPONENTS_ "${QT_COMPONENTS_} ${arg}")
@@ -60,15 +60,15 @@ macro(rosbuild_prepare_qt4)
         #message("ARGV.........................${ARGV}")
         #message("QT_COMPONENTS................${QT_COMPONENTS_}")
         #message("QT_DEFINITIONS...............${QT_DEFINITIONS}")
-        #find_package(Qt4 COMPONENTS ${QT_COMPONENTS_}) 
-        #find_package(Qt4 COMPONENTS QtCore QtGui QtXml) 
-        find_package(Qt4 COMPONENTS ${ARGV})
+        #find_package(Qt5 COMPONENTS ${QT_COMPONENTS_}) 
+        #find_package(Qt5 COMPONENTS QtCore QtGui QtXml) 
+        find_package(Qt5 COMPONENTS ${ARGV})
     else()
-        find_package(Qt4)
+        find_package(Qt5)
     endif()
 
     if(NOT QT_QMAKE_EXECUTABLE)
-      #set(QT4_FOUND QT4-NOTFOUND) # Do we actually need this?
+      #set(QT5_FOUND QT5-NOTFOUND) # Do we actually need this?
     else()
         # This is needed on my ubuntu (cmake 2.8.0), but not on gentoo (cmake 2.8.1)
         # Probably later this can be dropped as it is done in 2.8.1+

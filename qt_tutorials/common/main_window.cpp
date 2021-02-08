@@ -9,7 +9,7 @@
 ** Includes
 *****************************************************************************/
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QMessageBox>
 #include <iostream>
 #include "main_window.hpp"
@@ -31,7 +31,7 @@ MainWindow::MainWindow(QNode *node, QWidget *parent) :
 	setWindowIcon(QIcon(":/images/icon.png"));
 	ui.tab_manager->setCurrentIndex(0); // ensure the first tab is showing - qt-designer should have this already hardwired, but often loses it (settings?).
 
-	setWindowTitle(QApplication::translate("MainWindowDesign", qnode->nodeName().c_str(), 0, QApplication::UnicodeUTF8));
+	setWindowTitle(QApplication::translate("MainWindowDesign", qnode->nodeName().c_str(), 0));
 
     /*********************
     ** Logging

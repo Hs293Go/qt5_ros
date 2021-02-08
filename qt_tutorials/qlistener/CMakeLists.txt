@@ -1,9 +1,10 @@
+include_directories(${CMAKE_BINARY_DIR})
 ##############################################################################
 # Sections
 ##############################################################################
 
 file(GLOB_RECURSE QT_MOC RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINKS *.hpp)
-QT4_WRAP_CPP(QT_MOC_HPP ${QT_MOC})
+QT5_WRAP_CPP(QT_MOC_HPP ${QT_MOC})
 
 ##############################################################################
 # Sources

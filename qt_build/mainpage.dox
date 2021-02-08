@@ -27,7 +27,7 @@ rosbuild_init()
 rosbuild_include(qt_build qt-ros)
 
 # Call any of qt-ros' api, e.g.
-rosbuild_prepare_qt4(QtCore QtGui QtNetwork)
+rosbuild_prepare_qt5(QtCore QtGui QtNetwork)
 @endcode
 
 @section Rosbuild2
@@ -39,7 +39,7 @@ Todo
 There is currently only one module, qt-ros.cmake and it only has
 on cmake function that is public:  
 
-- rosbuild_prepare_qt4( LIST_OF_COMPONENTS )
+- rosbuild_prepare_qt5( LIST_OF_COMPONENTS )
 
 where the list of components is a space separated list drawn from the 
 available qt components that you may have installed. For ros packages, 
@@ -48,15 +48,15 @@ you'll typically be interested in one of the following components
 QtCore, QtGui, QtMain, QtNetwork, QtOpengl, QtSql, QtSvg, 
 QtDbus, QtScript, QtWebkit, QtXml, QtXmlPatterns, QtPhonon 
 
-This function is mostly a wrapper around the FindQt4 module with some help
+This function is mostly a wrapper around the FindQt5 module with some help
 to define locations of various resources (such as qt-built ui headers). It 
 also includes some magic to help it work with the mingw cross compiler
-until the FindQt4 module is updated.
+until the FindQt5 module is updated.
 
 @section Notes
 
-The arguments to the rosbuild_link_qt4 macro is rather simplified. It could
-be written to take exactly the same arguments as the include_package(Qt4 ...) call
+The arguments to the rosbuild_link_qt5 macro is rather simplified. It could
+be written to take exactly the same arguments as the include_package(Qt5 ...) call
 would make - that will be added if there is a need for it.
 
 */

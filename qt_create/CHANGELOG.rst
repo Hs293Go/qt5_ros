@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+1.0.1 (2020-02-08)
+------------------
+* Port package to Qt5 using 4to5.sh script
+
 0.2.10 (2018-02-10)
 -------------------
 * Workaround applied for Qt4 and BOOST_JOIN problems

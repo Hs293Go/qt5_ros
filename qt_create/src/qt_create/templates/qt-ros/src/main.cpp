@@ -9,7 +9,7 @@
 ** Includes
 *****************************************************************************/
 
-#include <QtGui>
+#include <QtWidgets>
 #include <QApplication>
 #include "../include/%(package)s/main_window.hpp"
 
